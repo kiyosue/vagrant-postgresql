@@ -123,42 +123,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "./vagrant_cookbooks"
     chef.json = { 
-      :mysql => {
-        :password => 'root'
-      },
       :postgres => {
         :password => 'postgres'
-      },
-      :httpd => {
-        :servername => 'localhost:80', 
-        :root => '/vagrant', 
-        :webroot => '/vagrant/app/webroot', 
-        :timeout => '60', 
-        :listen => '80'
-      }, 
-      :php => {
-        :max_execution_time => '30',
-        :memory_limit => '128M', 
-        :post_max_size => '32M', 
-        :default_charset => 'UTF-8', 
-        :upload_max_filesize => '16M'
-      },
-      :xdebug => {
-        :remote_host => '192.168.33.1',
-        :remote_port => '9000', 
-      },
-      :basercms => {
-        :database => 'basercms'
       }
     }
-    chef.add_recipe "iptables"
-    chef.add_recipe "yum::epel"
-    chef.add_recipe "yum::remi"
     chef.add_recipe "yum-packages"
-    chef.add_recipe "mysql"
     chef.add_recipe "postgres"
-    chef.add_recipe "httpd"
-    chef.add_recipe "basercms"
   end
 
   # Vagrant環境の使い方は「/vagrant_cookbooks/readme.txt」をご覧ください
