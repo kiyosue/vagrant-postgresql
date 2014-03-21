@@ -6,7 +6,6 @@ if not File.exists? "/var/lib/pgsql/data/" then
   execute "postgresql-init" do
     command "service postgresql initdb --no-locale -E UTF8"
     notifies :run, 'execute[postgres-set-password]'
-    notifies :run, 'execute[basercms-postgres-create-db]'
   end
 end
 
