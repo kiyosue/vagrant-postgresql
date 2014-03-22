@@ -58,13 +58,13 @@ execute 'postgres93-initdb' do
   action :nothing
 end
 
-template "/var/lib/pgsql/9.3/data/postgresql.conf" do
-  source "postgresql93.conf.erb"
-  owner "postgres"
-  group "postgres"
-  mode 0600
-#  notifies :restart, 'service[postgresql-9.3]'
-end
+#template "/var/lib/pgsql/9.3/data/postgresql.conf" do
+#  source "postgresql93.conf.erb"
+#  owner "postgres"
+#  group "postgres"
+#  mode 0600
+##  notifies :restart, 'service[postgresql-9.3]'
+#end
 
 
 yum_repository 'pgdg92' do
@@ -109,13 +109,13 @@ execute 'postgres92-initdb' do
   action :nothing
 end
 
-template "/var/lib/pgsql/9.2/data/postgresql.conf" do
-  source "postgresql92.conf.erb"
-  owner "postgres"
-  group "postgres"
-  mode 0600
-#  notifies :restart, 'service[postgresql-9.2]'
-end
+#template "/var/lib/pgsql/9.2/data/postgresql.conf" do
+#  source "postgresql92.conf.erb"
+#  owner "postgres"
+#  group "postgres"
+#  mode 0600
+##  notifies :restart, 'service[postgresql-9.2]'
+#end
 
 
 yum_repository 'pgdg91' do
@@ -160,11 +160,11 @@ execute 'postgres91-initdb' do
   action :nothing
 end
 
-template "/var/lib/pgsql/9.1/data/postgresql.conf" do
-  source "postgresql91.conf.erb"
-  owner "postgres"
-  group "postgres"
-  mode 0600
-#  notifies :restart, 'service[postgresql-9.1]'
-end
+#template "/var/lib/pgsql/9.1/data/postgresql.conf" do
+#  source "postgresql91.conf.erb"
+#  owner "postgres"
+#  group "postgres"
+#  mode 0600
+##  notifies :restart, 'service[postgresql-9.1]'
+#end
 
